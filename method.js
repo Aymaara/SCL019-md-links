@@ -25,7 +25,7 @@ const getstatus = (link)  => {
         path:url.parse(link).pathname,
         hostname: url.parse(link).host,
          port:443,
-         method:'HEAD'
+         method:'GET'
                 } 
 //console.log(options);
     
@@ -36,14 +36,14 @@ const req = https.request(options, (res) => {
         status:`ok ${res.statusCode}`
       };
       
-     console.log('1req', linkstatus);
+    //  console.log('1req', linkstatus);
      // console.log(`statusCode: ${res.statusCode}`)
     
     resolve(linkstatus); 
     });
         
     req.on('error', (error) => {
-     console.error(error);
+    // console.error(error);
       const dataerr = {
         linkname: link,
         status: false
